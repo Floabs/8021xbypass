@@ -27,6 +27,7 @@ Verified in the current environment:
 - `doctor` works
 - `preflight` works
 - a one-second live `observe` smoke test works
+- the surrounding AP2 VM lab now includes a Linux authenticator node and a prepared appliance VM; see `docs/LAB_ENVIRONMENT.md`
 
 ## What Does Not Exist Yet
 
