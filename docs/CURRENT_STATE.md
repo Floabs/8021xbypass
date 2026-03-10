@@ -28,6 +28,7 @@ Verified in the current environment:
 - `preflight` works
 - a one-second live `observe` smoke test works
 - the surrounding AP2 VM lab now includes a Linux authenticator node and a prepared appliance VM; see `docs/LAB_ENVIRONMENT.md`
+- the current inline lab breakpoint is now documented: downstream `EAPOL-Start` is visible on the appliance, but no corresponding upstream `EAPOL` reaches the authenticator-facing side
 
 ## What Does Not Exist Yet
 
@@ -57,6 +58,12 @@ It would not yet be able to:
 - automatically set up a full two-NIC inline appliance workflow
 - perform an active 802.1X bypass demonstration
 - replace the older offensive proof-of-concept tools end to end
+
+In the current VM lab, that means:
+
+- the appliance can prove it is physically inline on the downstream side by observing `EAPOL-Start`
+- the appliance does not currently provide a path that carries that traffic onward to the authenticator side
+- a successful end-to-end inline 802.1X exchange should therefore not be expected from this codebase today
 
 ## Why It Was Built This Way
 
