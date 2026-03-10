@@ -1,0 +1,17 @@
+[Unit]
+Description=new8021x passive 802.1X observation loop
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/new8021x
+EnvironmentFile=/etc/default/new8021x-observe
+ExecStart=/opt/new8021x/.venv/bin/new8021x --config /opt/new8021x/config.toml observe-loop --iface ${NEW8021X_IFACE} --seconds ${NEW8021X_SECONDS} --interval ${NEW8021X_INTERVAL} --output-dir ${NEW8021X_OUTPUT_DIR}
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+

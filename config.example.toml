@@ -1,0 +1,14 @@
+profile_name = "conference-kit"
+
+[interfaces]
+upstream = "eth0"
+downstream = "eth1"
+sidechannel = ""
+
+[observe]
+default_iface = "eth0"
+duration_seconds = 15
+loop_interval_seconds = 5
+
+[reporting]
+report_dir = "reports"

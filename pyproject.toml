@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "new8021x"
+version = "0.1.0"
+description = "Lawful wired 802.1X research and awareness toolkit scaffold"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+  {name = "OpenAI Codex scaffold"},
+]
+dependencies = []
+
+[project.scripts]
+new8021x = "new8021x.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
