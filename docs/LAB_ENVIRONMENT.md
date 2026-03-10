@@ -38,6 +38,9 @@ For the VM-first lab, use:
 - During the latest passive inline check, the appliance saw a real `EAPOL-Start` on `enp0s9` from `wpasupp01`.
 - During that same test window, the appliance saw no `EAPOL` on `enp0s8`.
 - The current lab breakpoint is therefore clear: downstream supplicant traffic reaches the appliance, but does not reach the authenticator-facing side through the appliance path.
+- A separate harmless forwarding smoke test now exists in `/opt/8021x/scripts/run_harmless_forwarding_test.sh`.
+- Its default `route` mode has been validated successfully with bidirectional `ping` across the appliance.
+- Its optional `bridge` mode remains a pure L2 diagnostic and appears to be constrained by VirtualBox MAC filtering in this VM lab.
 
 ## Why This Matters
 
@@ -48,4 +51,4 @@ This separation keeps the code in this repository honest about what it can do to
 - passive EAPOL observation
 - report generation
 
-It still does not yet create the active inline bridge or forwarding workflow automatically, and the current VM lab result matches that limitation exactly.
+It still does not yet create the active inline bridge or forwarding workflow automatically, and the current VM lab result matches that limitation exactly. The harmless forwarding smoke test lives in the infrastructure repo, not in `new8021x` itself.

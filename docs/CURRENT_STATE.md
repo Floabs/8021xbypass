@@ -29,6 +29,7 @@ Verified in the current environment:
 - a one-second live `observe` smoke test works
 - the surrounding AP2 VM lab now includes a Linux authenticator node and a prepared appliance VM; see `docs/LAB_ENVIRONMENT.md`
 - the current inline lab breakpoint is now documented: downstream `EAPOL-Start` is visible on the appliance, but no corresponding upstream `EAPOL` reaches the authenticator-facing side
+- a separate infrastructure-driven forwarding smoke test exists for the same VM topology; its default routed mode has been validated successfully and remains intentionally separate from the `new8021x` runtime
 
 ## What Does Not Exist Yet
 
@@ -64,6 +65,7 @@ In the current VM lab, that means:
 - the appliance can prove it is physically inline on the downstream side by observing `EAPOL-Start`
 - the appliance does not currently provide a path that carries that traffic onward to the authenticator side
 - a successful end-to-end inline 802.1X exchange should therefore not be expected from this codebase today
+- harmless forwarding validation can succeed via the external lab script because that script uses safe temporary infrastructure outside the `new8021x` runtime
 
 ## Why It Was Built This Way
 
