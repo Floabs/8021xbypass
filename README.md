@@ -1,8 +1,6 @@
 # new8021x
 
-`new8021x` is a clean-room Python 3 scaffold for lawful wired 802.1X research, conference demos, and security awareness labs.
-
-It is intentionally not a bypass tool. The current implementation focuses on:
+`new8021x` is a clean-room Python 3 scaffold for lawful wired 802.1X research, conference demos, and security awareness labs. The final goal of this project is to successfully demonstrate a 802.1x bypass (still on progress)
 
 - two-NIC appliance preflight checks
 - passive EAPOL / EAP observation
@@ -24,7 +22,9 @@ As of 2026-03-10, this project is a documented, working foundation for:
 - offline classic PCAP analysis
 - report generation
 
-It is not currently an active 802.1X bypass appliance.
+
+TODO: 
+Implement on a raspberry, look and test FENRIR, silentrbidge and try to successfully deploy a 802.1x bypass /roadmap
 
 If you are evaluating it for a Raspberry Pi build, read:
 
@@ -51,7 +51,9 @@ If you are evaluating it for a Raspberry Pi build, read:
 - `new8021x init-config`
   - Write an example `config.toml`.
 
-These commands are implemented now and do work, but they are passive/validation-oriented commands. None of them currently alter network topology, impersonate an authenticator, or perform bypass actions.
+These commands are implemented now and do work, but they are passive/validation-oriented commands. None of them currently alter network topology, impersonate an authenticator, or perform bypass actions - those will come next.
+
+
 
 ## Example
 
@@ -81,13 +83,10 @@ sudo new8021x observe --iface eth0 --seconds 20 --report reports/observe.md
 - Interface metadata is read from `/sys/class/net` and `ip -j addr show`.
 - EAPOL parsing is implemented locally to avoid fragile runtime dependencies.
 
-## Non-Goals
 
-The scaffold does not implement:
+Future Workflows/Plans:
 
-- active 802.1X bypass
 - rogue authenticator workflows
 - credential harvesting
 - packet rewriting to gain unauthorized access
 
-If you need future lab-only modules for an isolated testbed, add them behind explicit profiles and keep them separate from the conference/demo core.
